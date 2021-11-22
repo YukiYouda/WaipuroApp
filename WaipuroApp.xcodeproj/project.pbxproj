@@ -13,9 +13,17 @@
 		364BF3D02748F70000885D40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364BF3CE2748F70000885D40 /* Main.storyboard */; };
 		364BF3D22748F70300885D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364BF3D12748F70300885D40 /* Assets.xcassets */; };
 		364BF3D52748F70300885D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364BF3D32748F70300885D40 /* LaunchScreen.storyboard */; };
+		364BF3DD2748F76D00885D40 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3DC2748F76D00885D40 /* Constants.swift */; };
+		364BF3DF2749D20E00885D40 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3DE2749D20E00885D40 /* LoginViewController.swift */; };
+		364BF3E1274A136500885D40 /* IndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3E0274A136500885D40 /* IndexTableViewController.swift */; };
+		364BF3E3274A14A200885D40 /* Recruitments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3E2274A14A200885D40 /* Recruitments.swift */; };
+		364BF3E5274B634600885D40 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3E4274B634600885D40 /* ShowViewController.swift */; };
+		364BF3E7274B95B200885D40 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BF3E6274B95B200885D40 /* Show.swift */; };
+		4DA43538CC554159830F3C85 /* Pods_WaipuroApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA996AB6D0BD0459290DE4 /* Pods_WaipuroApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08AA996AB6D0BD0459290DE4 /* Pods_WaipuroApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaipuroApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		364BF3C52748F70000885D40 /* WaipuroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaipuroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364BF3C82748F70000885D40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		364BF3CA2748F70000885D40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,14 @@
 		364BF3D12748F70300885D40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		364BF3D42748F70300885D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		364BF3D62748F70300885D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364BF3DC2748F76D00885D40 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		364BF3DE2749D20E00885D40 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		364BF3E0274A136500885D40 /* IndexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTableViewController.swift; sourceTree = "<group>"; };
+		364BF3E2274A14A200885D40 /* Recruitments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruitments.swift; sourceTree = "<group>"; };
+		364BF3E4274B634600885D40 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		364BF3E6274B95B200885D40 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		3FA60AF06E97040219EABD24 /* Pods-WaipuroApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaipuroApp.debug.xcconfig"; path = "Target Support Files/Pods-WaipuroApp/Pods-WaipuroApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C6A6D588D6C94915AEFCF8FE /* Pods-WaipuroApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaipuroApp.release.xcconfig"; path = "Target Support Files/Pods-WaipuroApp/Pods-WaipuroApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA43538CC554159830F3C85 /* Pods_WaipuroApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D8B735AE0CBDB996E2F9C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FA60AF06E97040219EABD24 /* Pods-WaipuroApp.debug.xcconfig */,
+				C6A6D588D6C94915AEFCF8FE /* Pods-WaipuroApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		364BF3BC2748F70000885D40 = {
 			isa = PBXGroup;
 			children = (
 				364BF3C72748F70000885D40 /* WaipuroApp */,
 				364BF3C62748F70000885D40 /* Products */,
+				04D8B735AE0CBDB996E2F9C6 /* Pods */,
+				94EFD43232F05A98301D5DA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +85,28 @@
 			isa = PBXGroup;
 			children = (
 				364BF3C82748F70000885D40 /* AppDelegate.swift */,
+				364BF3E4274B634600885D40 /* ShowViewController.swift */,
+				364BF3DC2748F76D00885D40 /* Constants.swift */,
 				364BF3CA2748F70000885D40 /* SceneDelegate.swift */,
 				364BF3CC2748F70000885D40 /* ViewController.swift */,
+				364BF3DE2749D20E00885D40 /* LoginViewController.swift */,
 				364BF3CE2748F70000885D40 /* Main.storyboard */,
+				364BF3E0274A136500885D40 /* IndexTableViewController.swift */,
+				364BF3E2274A14A200885D40 /* Recruitments.swift */,
+				364BF3E6274B95B200885D40 /* Show.swift */,
 				364BF3D12748F70300885D40 /* Assets.xcassets */,
 				364BF3D32748F70300885D40 /* LaunchScreen.storyboard */,
 				364BF3D62748F70300885D40 /* Info.plist */,
 			);
 			path = WaipuroApp;
+			sourceTree = "<group>";
+		};
+		94EFD43232F05A98301D5DA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08AA996AB6D0BD0459290DE4 /* Pods_WaipuroApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 364BF3D92748F70300885D40 /* Build configuration list for PBXNativeTarget "WaipuroApp" */;
 			buildPhases = (
+				F98C3FA4A3425957B1F114BE /* [CP] Check Pods Manifest.lock */,
 				364BF3C12748F70000885D40 /* Sources */,
 				364BF3C22748F70000885D40 /* Frameworks */,
 				364BF3C32748F70000885D40 /* Resources */,
+				92F558B3C94E743DB9E086BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +177,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		92F558B3C94E743DB9E086BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaipuroApp/Pods-WaipuroApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaipuroApp/Pods-WaipuroApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaipuroApp/Pods-WaipuroApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F98C3FA4A3425957B1F114BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaipuroApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		364BF3C12748F70000885D40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +226,13 @@
 			files = (
 				364BF3CD2748F70000885D40 /* ViewController.swift in Sources */,
 				364BF3C92748F70000885D40 /* AppDelegate.swift in Sources */,
+				364BF3E1274A136500885D40 /* IndexTableViewController.swift in Sources */,
+				364BF3E5274B634600885D40 /* ShowViewController.swift in Sources */,
 				364BF3CB2748F70000885D40 /* SceneDelegate.swift in Sources */,
+				364BF3DF2749D20E00885D40 /* LoginViewController.swift in Sources */,
+				364BF3E7274B95B200885D40 /* Show.swift in Sources */,
+				364BF3DD2748F76D00885D40 /* Constants.swift in Sources */,
+				364BF3E3274A14A200885D40 /* Recruitments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +376,7 @@
 		};
 		364BF3DA2748F70300885D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA60AF06E97040219EABD24 /* Pods-WaipuroApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +390,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +406,7 @@
 		};
 		364BF3DB2748F70300885D40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6A6D588D6C94915AEFCF8FE /* Pods-WaipuroApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +420,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
