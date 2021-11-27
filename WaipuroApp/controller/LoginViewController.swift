@@ -14,7 +14,9 @@ import KeychainAccess
 class LoginViewController: UIViewController {
     let consts = Constants.shared
     var token = ""
+    var user_id = ""
     var session: ASWebAuthenticationSession?
+    
     
     
     @IBOutlet weak var mail: UITextField!
@@ -22,6 +24,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let keychain = Keychain(service: consts.service)
+        if keychain["access_token"] != nil {
+            keychain["access_token"] = nil //keychainに保存されたtokenを削除
+        }
         
     }
     
@@ -45,21 +51,36 @@ class LoginViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                
                 let token: String? = json["token"].string
+                let user_id = json["user"]["id"].int!
+                let userVC = self.storyboard?.instantiateViewController(withIdentifier: "userVC") as! UserViewController
+                userVC.user_id = String(user_id)
+
+                print(userVC.user_id)
                 guard let accessToken = token else { return }
                 self.token = accessToken
                 let keychain = Keychain(service: self.consts.service) //このアプリ用のキーチェーンを生成
                 keychain["access_token"] = accessToken //キーを設定して保存
+                self.transitionToTabBar() //画面遷移
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
-
+    
+    func transitionToTabBar() {
+        let tabBarContorller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarC") as! UITabBarController
+        tabBarContorller.modalPresentationStyle = .fullScreen
+        present(tabBarContorller, animated: true, completion: nil)
+    }
+    
     @IBAction func login(_ sender: Any) {
         let keychain = Keychain(service: consts.service)
         if keychain["access_token"] != nil {
             token = keychain["access_token"]!
+            transitionToTabBar() //画面遷移
+            
         } else {
             self.getAccessToken()
         }

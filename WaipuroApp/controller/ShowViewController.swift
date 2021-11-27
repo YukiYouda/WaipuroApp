@@ -12,7 +12,6 @@ import KeychainAccess
 
 class ShowViewController: UIViewController {
     
-    @IBOutlet weak var create: UILabel!
     @IBOutlet weak var due_date: UILabel!
     @IBOutlet weak var language: UILabel!
     @IBOutlet weak var name: UILabel!
@@ -69,8 +68,7 @@ class ShowViewController: UIViewController {
                     comment: json["comment"].string!,
                     gain: json["gain"].string!,
                     number: json["number"].string!,
-                    period: json["period"].string!,
-                    create: json["created_at"].string!
+                    period: json["period"].string!
                 )
                 self.setShow(show: show)
             case .failure(let err):
@@ -79,7 +77,6 @@ class ShowViewController: UIViewController {
         }
     }
     func setShow(show: Show) {
-        create.text = show.create
         due_date.text = show.due_date
         language.text = show.category_name
         name.text = show.name
@@ -100,5 +97,8 @@ class ShowViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

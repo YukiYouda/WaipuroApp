@@ -17,5 +17,4 @@ struct Show {
     let gain: String
     let number: String
     let period: String
-    let create: String
 }

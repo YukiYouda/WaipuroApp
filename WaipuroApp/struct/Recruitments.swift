@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recruitment {
+struct Recruitment{
     let name: String
     let description: String
     let due_date: String

@@ -1,8 +1,8 @@
 //
-//  IndexTableViewController.swift
+//  RecruitmentTableViewController.swift
 //  WaipuroApp
 //
-//  Created by YUKI YOUDA on 2021/11/21.
+//  Created by YUKI YOUDA on 2021/11/24.
 //
 
 import UIKit
@@ -11,9 +11,12 @@ import SwiftyJSON
 import KeychainAccess
 import Kingfisher
 
-class IndexTableViewController: UITableViewController {
+class RecruitmentTableViewController: UITableViewController {
     let consts = Constants.shared
     var recruitments: [Recruitment] = []
+    
+   
+    @IBOutlet var recruitmentsTableView: UITableView!
     
     func getIndex(){
         //キーチェーンからアクセストークンを取り出す
@@ -21,7 +24,7 @@ class IndexTableViewController: UITableViewController {
         guard let accessToken = keychain["access_token"] else { return print("no token") }
         
         //リクエストのURLの生成
-        let url = URL(string: consts.baseUrl + "/recruitments")!
+        let url = URL(string: consts.baseUrl + "/recruitments/dashboard")!
         
         //ヘッダにアクセストークンを含める
         
@@ -37,60 +40,57 @@ class IndexTableViewController: UITableViewController {
             case .success(let value):
                 self.recruitments = []
                 //SwiftyJSONでDecode
-                let json = JSON(value).arrayValue
+                let json = JSON(value)
+                print(json["data"])
 
                 //jsonから記事1件ずつの情報を取り出してRecruitment型のオブジェクトをつくり、配列に追加
-                for recruitment in json {
-                    let article = Recruitment(
-                        name: recruitment["name"].string!,
-                        description: recruitment["description"].string!,
-                        due_date: recruitment["due_date"].string!,
-                        user_name: recruitment["user"]["name"].string!,
-                        category_name: recruitment["category"]["name"].string!,
-                        id: recruitment["id"].int!
-                    )
-                    self.recruitments.append(article)
-                }
-                //自分の投稿記事一覧のテーブルビューを更新
-                self.Index.reloadData()
+//                for recruitment in json {
+//                    let article = Recruitment(
+//                        name: recruitment["name"].string!,
+//                        description: recruitment["description"].string!,
+//                        due_date: recruitment["due_date"].string!,
+//                        user_name: recruitment["user"]["name"].string!,
+//                        category_name: recruitment["category"]["name"].string!,
+//                        id: recruitment["id"].int!
+//                    )
+//                    self.recruitments.append(article)
+//                }
+//                //自分の投稿記事一覧のテーブルビューを更新
+//                self.recruitmentsTableView.reloadData()
                 //failureの時
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Index.dataSource = self
-        Index.delegate = self
+        recruitmentsTableView.dataSource = self
+        recruitmentsTableView.delegate = self
         getIndex()
-        
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return recruitments.count
     }
-    
-    @IBOutlet var Index: UITableView!
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IndexCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecruitmentsCell", for: indexPath)
         
         let category = cell.viewWithTag(1) as! UILabel
         category.text = recruitments[indexPath.row].category_name
         
         
         let duedate = cell.viewWithTag(2) as! UILabel
-        duedate.text = "応募期限" + recruitments[indexPath.row].due_date
+        duedate.text = recruitments[indexPath.row].due_date
         
         let apname = cell.viewWithTag(3) as! UILabel
         apname.text = recruitments[indexPath.row].name
@@ -105,7 +105,7 @@ class IndexTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height * 1 / 4
+        return self.view.frame.height * 0.5
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,4 +117,5 @@ class IndexTableViewController: UITableViewController {
         //編集・削除画面を表示!
         present(showVC, animated: true, completion: nil)
     }
+
 }
